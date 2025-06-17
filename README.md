@@ -1,33 +1,67 @@
-## Grupo B - Equipo 5
-_Curso de Programación Asistida con IA - Chicas en Tecnología_ 🚀
+# 👩‍💻 Grupo B - Equipo 5
 
-En este repositorio, se presenta el sitio web realizado durante el curso de programación frontend de CET.
+### Curso de Programación Asistida con IA - Chicas en Tecnología 🚀
 
-### 📄 Entregas
-**Entrega #1**: planificación de la solución y primeros resultados que obtengamos con la IA:
+En este repositorio encontrarás el sitio web desarrollado durante el curso de frontend de CET.  
+Un proyecto que busca acompañar a jóvenes en uno de los momentos más complejos: **decidir su futuro**.
 
-📝 Edición del Archivo README incluyendo:
-- Definición de la problemática que eligieron abordar
-- Relación con los *Objetivos de Desarrollo Sostenible (ODS)*[^1]
-- Explicación de la solución tecnológica que están desarrollando
-> [!TIP]
-> Aprovechen los [formatos del README](https://docs.github.com/es/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) para escribir diferentes secciones
+---
 
-🎨 Moodboard
+## 🎯 Problema que abordamos
 
-🧩 Archivos generados con asistencia de IA: ```index.html```, ```style.css```, ```script.js```
+### Orientación vocacional y deserción educativa
 
+> **Elegir un camino no debería ser tan confuso.**
 
-**Entrega #2 (Final)**: se esperan modificaciones en el código respecto a la entrega anterior, que pueden incluir nuevos archivos o extensión de los existentes (debe haber al menos un archivo de cada lenguaje visto - HTML, CSS y Javascript)
+En un mundo que cambia constantemente, muchas personas jóvenes sienten que decidir su futuro es un salto al vacío.  
+La incertidumbre, la falta de información o el no contar con acompañamiento hacen que muchas decisiones importantes se tomen a ciegas.
 
-💡 Es una buena idea llevar un registro de lo que cambiamos. Por ejemplo
-```
-- Agregamos Bootstrap para el carrousel de imágenes...
-- Modificamos el texto de la sección de bienvenida...
-- Transformamos los textos sobre redes sociales en links...
-```
+💡 En esta página queremos abrir una ventana a las opciones reales:  
+Orientación vocacional, educación, oportunidades y contención para que nadie tenga que decidir a solas.
 
-Ahora si, ¡A programar! 🚀
+> Pedir ayuda, explorar y cambiar también son formas de avanzar.  
+Tu futuro no tiene que estar definido, pero sí acompañado.
 
+---
 
-[^1]: Los Objetivos de Desarrollo Sostenible u Objetivos Globales, también conocidos como Agenda 2030, son 17 objetivos globales interconectados diseñados para ser un «plan para lograr un futuro mejor y más sostenible para todos». Más información en https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/
+## 🌍 Relación con los ODS
+
+Este proyecto está alineado con el **Objetivo de Desarrollo Sostenible N.º 4: Educación de calidad** 📚.
+
+Aborda la problemática que enfrentan jóvenes recién egresados del nivel medio o personas que no pueden acceder a orientación vocacional profesional. Queremos brindar acceso libre y herramientas que acompañen ese proceso.
+
+---
+
+## 🧩 Nuestra solución tecnológica
+
+Desarrollamos una **plataforma web** que incluye:
+
+- 🗣️ **Foro**: espacio para consultas, intercambio de experiencias y consejos entre estudiantes y graduados.
+- 🔍 **Buscador de cursos**: con filtros por modalidad (presencial, virtual o híbrida), área temática y duración.
+- 🤖 **Asistente virtual con IA**: guía vocacional basada en preguntas clave, para ayudar a los usuarios a explorar opciones de forma acompañada.
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+- HTML5
+- CSS3
+- JavaScript
+- 💬 API de OpenAI (para el asistente virtual)
+
+---
+
+## 📌 Estado del proyecto
+
+🚧 En desarrollo...
+
+---
+
+## 🧠 Equipo
+
+- **Grupo B - Equipo 5** del curso *Programación Asistida con IA*  
+- 💜 Proyecto de **Chicas en Tecnología**
+
+---
+
+Hecho con propósito, colaboración y muchas líneas de código 💻✨
