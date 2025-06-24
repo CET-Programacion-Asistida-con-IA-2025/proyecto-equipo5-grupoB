@@ -213,6 +213,13 @@ orientación vocacional, educación, oportunidades y contención para que nadie 
     <section id="experiencias" class="seccion">
       <h2>Foro de Experiencias</h2>
       <p>Leé o compartí historias de estudiantes y egresados sobre sus carreras, decisiones, dificultades y logros.</p>
+      <div id="comentarios-container"></div>
+
+      <div style="margin-top: 1rem;">
+        <label for="comentario">Escribí tu comentario:</label><br>
+        <textarea id="comentario" rows="3" style="width: 100%; margin-top: 0.5rem;"></textarea>
+        <button onclick="agregarComentario()">Publicar</button>
+      </div>
     </section>
 
     <section id="cursos" class="seccion">
@@ -292,43 +299,54 @@ orientación vocacional, educación, oportunidades y contención para que nadie 
       }
     });*/
  
-    async function sendMessage() {
-  const input = document.getElementById("user-input");
-  const message = input.value.trim();
-  if (!message) return;
+     function toggleChat() {
+    const chatbotBody = document.getElementById("chatbot-body");
+    chatbotBody.style.display = chatbotBody.style.display === "none" ? "flex" : "none";
+  }
 
-  const chatBox = document.getElementById("chat-box");
+  function sendMessage() {
+    const input = document.getElementById("user-input");
+    const message = input.value.trim();
+    if (!message) return;
 
-  // Mostrar mensaje usuario
-  chatBox.innerHTML += `<div class="message user">${message}</div>`;
-  chatBox.scrollTop = chatBox.scrollHeight;
+    const chatBox = document.getElementById("chat-box");
 
-  input.value = "";
+    // Mostrar mensaje del usuario
+    chatBox.innerHTML += `<div class="message user">Vos: ${message}</div>`;
 
-  try {
-    const res = await fetch("http://localhost:3000/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message }),
-    });
+    // Generar respuesta predefinida
+    const respuesta = obtenerRespuestaPredefinida(message.toLowerCase());
+    chatBox.innerHTML += `<div class="message assistant">Asistente: ${respuesta}</div>`;
 
-    const data = await res.json();
-
-    chatBox.innerHTML += `<div class="message assistant">${data.response}</div>`;
-    chatBox.scrollTop = chatBox.scrollHeight;
-  } catch (err) {
-    chatBox.innerHTML += `<div class="message assistant">Error al responder</div>`;
+    input.value = "";
     chatBox.scrollTop = chatBox.scrollHeight;
   }
-}
-function toggleChat() {
-  const body = document.getElementById("chatbot-body");
-  if (body.style.display === "flex") {
-    body.style.display = "none";
-  } else {
-    body.style.display = "flex";
+
+  function obtenerRespuestaPredefinida(pregunta) {
+    if (pregunta.includes("hola") || pregunta.includes("buen dia")) return "¡Hola! ¿En qué puedo ayudarte con tu orientación vocacional?";
+    if (pregunta.includes("gracias")) return "De nada! Es un placer ayudarte 😊";
+    if (pregunta.includes("carrera")) return "Podés pensar en tus intereses y habilidades para elegir una carrera. Pensá en las siguientes preguntas: ¿Hay algo que te guste mucho hacer? ¿Cuáles son tus habilidades?";
+    if (pregunta.includes("universidad")) return "Existen muchas universidades con buenas carreras. Fijate en nuestra secciòn de Mapa Interactivo todas las Universidades!";
+    if (pregunta.includes("no sé qué estudiar")) return "Tranquilo/a, es normal. Podemos empezar por pensar en lo que te gusta o en tus materias favoritas.";
+    return "Lo siento, todavía no tengo una respuesta para eso. Podés probar con otra pregunta 😊";
   }
-}
+
+   function agregarComentario() {
+    const comentarioInput = document.getElementById("comentario");
+    const comentarioTexto = comentarioInput.value.trim();
+
+    if (!comentarioTexto) return;
+
+    const contenedor = document.getElementById("comentarios-container");
+    const nuevoComentario = document.createElement("div");
+    nuevoComentario.style.padding = "0.5rem";
+    nuevoComentario.style.borderBottom = "1px solid #ddd";
+    nuevoComentario.style.marginBottom = "0.5rem";
+    nuevoComentario.textContent = comentarioTexto;
+
+    contenedor.appendChild(nuevoComentario);
+    comentarioInput.value = "";
+  }
   </script>
 </body>
 </html>
