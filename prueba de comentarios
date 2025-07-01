@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orientación Vocacional</title>
+  <style>
+    :root {
+      --celeste: #aee1f9;
+      --celeste-oscuro: #6cb8e6;
+      --lila: #d3bdf0;
+      --lila-oscuro: #b498dc;
+      --blanco: #ffffff;
+      --gris-suave: #f7f7f7;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--gris-suave);
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, var(--celeste), var(--lila));
+      padding: 1.5rem;
+      color: var(--blanco);
+      text-align: center;
+    }
+
+    nav {
+      background-color: var(--celeste-oscuro);
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: var(--blanco);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .seccion {
+      background-color: var(--blanco);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .seccion h2 {
+      color: var(--lila-oscuro);
+    }
+
+    #resultado-busqueda {
+      margin-top: 1rem;
+      color: #555;
+    }
+
+    .chatbot {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 1rem;
+      max-width: 400px;
+      background-color: var(--gris-suave);
+    }
+
+    .chatbot input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .filtros {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .filtros label {
+      font-weight: bold;
+    }
+
+    .filtros select,
+    .filtros input[type="number"] {
+      padding: 0.5rem;
+      width: 100%;
+    }
+
+    button {
+      background-color: var(--lila-oscuro);
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--celeste-oscuro);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--lila);
+      color: var(--blanco);
+    }
+
+    .chatbot-wrapper {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 320px;
+        background: #fff;
+        border: 2px solid #b39ddb;
+        border-radius: 12px;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+      
+      .chatbot-header {
+        background-color: #b39ddb;
+        color: white;
+        padding: 12px;
+        cursor: pointer;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 10px 10px 0 0;
+      }
+      
+      .chatbot-body {
+        display: none;
+        flex-direction: column;
+        max-height: 400px;
+        overflow: hidden;
+      }
+      
+      #chat-box {
+        padding: 10px;
+        height: 250px;
+        overflow-y: auto;
+        font-size: 14px;
+      }
+      
+      .input-box {
+        display: flex;
+        border-top: 1px solid #ccc;
+      }
+      
+      .input-box input {
+        flex: 1;
+        border: none;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 0 0 0 10px;
+      }
+      
+      .input-box button {
+        padding: 10px;
+        border: none;
+        background-color: #90caf9;
+        color: white;
+        cursor: pointer;
+        border-radius: 0 0 10px 0;
+      }
+      
+      .message {
+        margin-bottom: 10px;
+      }
+      
+      .user {
+        text-align: right;
+        color: #6a1b9a;
+      }
+      
+      .assistant {
+        text-align: left;
+        color: #1565c0;
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Orientación Vocacional</h1>
+    <p> <strong>Elegir un camino no debería ser tan confuso.</strong>  <br>En un mundo que cambia todo el tiempo, cada vez más jóvenes sienten que decidir su futuro es un salto al vacío.
+La incertidumbre, la falta de información o de acompañamiento hacen que muchas decisiones importantes se tomen a ciegas. En esta página queremos abrir una ventana a las opciones reales:
+orientación vocacional, educación, oportunidades y contención para que nadie tenga que decidir solx. Acá vas a encontrar <strong>recursos, testimonios, ideas y herramientas</strong>  que te ayuden a entender que pedir ayuda, explorar y cambiar también son formas de avanzar.
+<br> <strong>Tu futuro no tiene que estar definido, pero sí acompañado.</strong></p>
+  </header>
+
+  <nav>
+    <a href="#experiencias">Foro de Experiencias</a>
+    <a href="#cursos">Buscador de Cursos</a>
+    <a href="#ayuda">Asistente</a>
+  </nav>
+
+  <main>
+    <section id="experiencias" class="seccion">
+      <h2>Foro de Experiencias</h2>
+      <p>Leé o compartí historias de estudiantes y egresados sobre sus carreras, decisiones, dificultades y logros.</p>
+      <div id="comentarios-container"></div>
+
+      <div style="margin-top: 1rem;">
+        <label for="comentario">Escribí tu comentario:</label><br>
+        <textarea id="comentario" rows="3" style="width: 100%; margin-top: 0.5rem;"></textarea>
+        <button onclick="agregarComentario()">Publicar</button>
+      </div>
+    </section>
+
+    <section id="cursos" class="seccion">
+      <h2>Buscador de Cursos</h2>
+      <div class="filtros">
+        <label for="modalidad">Modalidad:</label>
+        <select id="modalidad">
+          <option value="">Todas</option>
+          <option value="virtual">Virtual</option>
+          <option value="presencial">Presencial</option>
+          <option value="hibrido">Híbrido</option>
+        </select>
+
+        <label for="area">Área:</label>
+        <select id="area">
+          <option value="">Todas</option>
+          <option value="marketing">Marketing</option>
+          <option value="ingenieria">Ingeniería</option>
+          <option value="derecho">Derecho</option>
+        </select>
+
+        <label for="duracion">Duración máxima (meses):</label>
+        <input type="number" id="duracion" placeholder="Ej: 12">
+
+        <button id="btnBuscar">Buscar</button>
+      </div>
+      <div id="resultado-busqueda"></div>
+    </section>
+
+    <section id="ayuda" class="seccion">
+        <div class="chatbot-wrapper">
+            <div class="chatbot-header" onclick="toggleChat()">💬 Asistente Virtual</div>
+            <div class="chatbot-body" id="chatbot-body">
+              <div id="chat-box"></div>
+              <div class="input-box">
+                <input type="text" id="user-input" placeholder="Escribí tu consulta..." />
+                <button onclick="sendMessage()">Enviar</button>
+              </div>
+            </div>
+          </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Orientación Vocacional. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    const cursos = [
+      { nombre: "Marketing Digital", modalidad: "virtual", area: "marketing", duracion: 6 },
+      { nombre: "Ingeniería en Informática", modalidad: "presencial", area: "ingenieria", duracion: 60 },
+      { nombre: "Derecho Laboral", modalidad: "hibrido", area: "derecho", duracion: 24 },
+      { nombre: "Publicidad Online", modalidad: "virtual", area: "marketing", duracion: 4 },
+      { nombre: "Ciberseguridad", modalidad: "virtual", area: "ingenieria", duracion: 8 }
+    ];
+
+    document.getElementById('btnBuscar').addEventListener('click', function() {
+      const modalidad = document.getElementById('modalidad').value;
+      const area = document.getElementById('area').value;
+      const duracionMax = parseInt(document.getElementById('duracion').value);
+
+      const resultados = cursos.filter(curso => {
+        return (!modalidad || curso.modalidad === modalidad) &&
+               (!area || curso.area === area) &&
+               (!duracionMax || curso.duracion <= duracionMax);
+      });
+
+      document.getElementById('resultado-busqueda').innerHTML = resultados.length
+        ? `<ul>${resultados.map(r => `<li><strong>${r.nombre}</strong> (${r.modalidad}, ${r.area}, ${r.duracion} meses)</li>`).join('')}</ul>`
+        : '<p>No se encontraron resultados.</p>';
+    });
+
+    /*document.getElementById('pregunta').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        const respuesta = "Gracias por tu consulta. Considerá tus intereses, habilidades y hablá con un orientador vocacional.";
+        document.getElementById('respuesta-chat').innerText = respuesta;
+      }
+    });*/
+ 
+     function toggleChat() {
+    const chatbotBody = document.getElementById("chatbot-body");
+    chatbotBody.style.display = chatbotBody.style.display === "none" ? "flex" : "none";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("user-input");
+    const message = input.value.trim();
+    if (!message) return;
+
+    const chatBox = document.getElementById("chat-box");
+
+    // Mostrar mensaje del usuario
+    chatBox.innerHTML += `<div class="message user">Vos: ${message}</div>`;
+
+    // Generar respuesta predefinida
+    const respuesta = obtenerRespuestaPredefinida(message.toLowerCase());
+    chatBox.innerHTML += `<div class="message assistant">Asistente: ${respuesta}</div>`;
+
+    input.value = "";
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  function obtenerRespuestaPredefinida(pregunta) {
+    if (pregunta.includes("hola") || pregunta.includes("buen dia")) return "¡Hola! ¿En qué puedo ayudarte con tu orientación vocacional?";
+    if (pregunta.includes("gracias")) return "De nada! Es un placer ayudarte 😊";
+    if (pregunta.includes("carrera")) return "Podés pensar en tus intereses y habilidades para elegir una carrera. Pensá en las siguientes preguntas: ¿Hay algo que te guste mucho hacer? ¿Cuáles son tus habilidades?";
+    if (pregunta.includes("universidad")) return "Existen muchas universidades con buenas carreras. Fijate en nuestra secciòn de Mapa Interactivo todas las Universidades!";
+    if (pregunta.includes("no sé qué estudiar")) return "Tranquilo/a, es normal. Podemos empezar por pensar en lo que te gusta o en tus materias favoritas.";
+    return "Lo siento, todavía no tengo una respuesta para eso. Podés probar con otra pregunta 😊";
+  }
+// Cargar comentarios guardados al cargar la página
+window.onload = function() {
+  const comentariosGuardados = JSON.parse(localStorage.getItem('comentarios')) || [];
+  const contenedor = document.getElementById("comentarios-container");
+
+  comentariosGuardados.forEach(texto => {
+    const nuevoComentario = document.createElement("div");
+    nuevoComentario.style.padding = "0.5rem";
+    nuevoComentario.style.borderBottom = "1px solid #ddd";
+    nuevoComentario.style.marginBottom = "0.5rem";
+    nuevoComentario.textContent = texto;
+    contenedor.appendChild(nuevoComentario);
+  });
+
+function agregarComentario() {
+  const comentarioInput = document.getElementById("comentario");
+  const comentarioTexto = comentarioInput.value.trim();
+
+  if (!comentarioTexto) return;
+
+  const contenedor = document.getElementById("comentarios-container");
+  const nuevoComentario = document.createElement("div");
+  nuevoComentario.style.padding = "0.5rem";
+  nuevoComentario.style.borderBottom = "1px solid #ddd";
+  nuevoComentario.style.marginBottom = "0.5rem";
+  nuevoComentario.textContent = comentarioTexto;
+
+  contenedor.appendChild(nuevoComentario);
+
+  // Guardar en localStorage
+  let comentariosGuardados = JSON.parse(localStorage.getItem('comentarios')) || [];
+  comentariosGuardados.push(comentarioTexto);
+  localStorage.setItem('comentarios', JSON.stringify(comentariosGuardados));
+
+  comentarioInput.value = "";
+}
+  </script>
+</body>
+</html>
