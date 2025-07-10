@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orientación Vocacional</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preload" href="css/styles.css" as="styles">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+</head>
+<body>
+  <header>
+    <h1>Orientación Vocacional</h1>
+    <p> <strong>Elegir un camino no debería ser tan confuso.</strong>  <br>En un mundo que cambia todo el tiempo, cada vez más jóvenes sienten que decidir su futuro es un salto al vacío.
+La incertidumbre, la falta de información o de acompañamiento hacen que muchas decisiones importantes se tomen a ciegas. En esta página queremos abrir una ventana a las opciones reales:
+orientación vocacional, educación, oportunidades y contención para que nadie tenga que decidir solx. Acá vas a encontrar <strong>recursos, testimonios, ideas y herramientas</strong>  que te ayuden a entender que pedir ayuda, explorar y cambiar también son formas de avanzar.
+<br> <strong>Tu futuro no tiene que estar definido, pero sí acompañado.</strong></p>
+  </header>
+
+  <nav>
+    <a href="#experiencias">Foro de Experiencias</a>
+    <a href="#cursos">Buscador de Cursos</a>
+    <a href="#ayuda">Asistente</a>
+  </nav>
+
+  <main>
+    <section id="experiencias" class="seccion">
+      <h2>Foro de Experiencias</h2>
+      <p>Leé o compartí historias de estudiantes y egresados sobre sus carreras, decisiones, dificultades y logros.</p>
+      <div id="comentarios-container"></div>
+
+      <div style="margin-top: 1rem;">
+        <label for="comentario">Escribí tu comentario:</label><br>
+        <textarea id="comentario" rows="3" style="width: 100%; margin-top: 0.5rem;"></textarea>
+        <button onclick="agregarComentario()">Publicar</button>
+      </div>
+    </section>
+
+    <section id="cursos" class="seccion">
+      <h2>Buscador de Cursos</h2>
+      <div class="filtros">
+        <label for="modalidad">Modalidad:</label>
+        <select id="modalidad">
+          <option value="">Todas</option>
+          <option value="virtual">Virtual</option>
+          <option value="presencial">Presencial</option>
+          <option value="hibrido">Híbrido</option>
+        </select>
+
+        <label for="area">Área:</label>
+        <select id="area">
+          <option value="">Todas</option>
+          <option value="marketing">Marketing</option>
+          <option value="ingenieria">Ingeniería</option>
+          <option value="derecho">Derecho</option>
+        </select>
+
+        <label for="duracion">Duración máxima (meses):</label>
+        <input type="number" id="duracion" placeholder="Ej: 12">
+        <button id="btnBuscar">Buscar</button>
+      </div>
+      <div id="resultado-busqueda"></div>
+    </section>
+
+    <section id="ayuda" class="seccion">
+        <div class="chatbot-wrapper">
+            <div class="chatbot-header" onclick="toggleChat()">💬 Asistente Virtual</div>
+            <div class="chatbot-body" id="chatbot-body">
+              <div id="chat-box"></div>
+              <div class="input-box">
+                <input type="text" id="user-input" placeholder="Escribí tu consulta..." />
+                <button onclick="sendMessage()">Enviar</button>
+              </div>
+            </div>
+          </div>
+    </section>
+    <section id="mapa" class="seccion">
+      <h2>Encontrá universidades cerca tuyo</h2>
+      <p>Ingresá tu dirección o permití que usemos tu ubicación para mostrarte instituciones educativas cercanas.</p>
+      
+      <input type="text" id="direccion" placeholder="Ej: Av. Corrientes 1234, CABA" />
+      <button onclick="buscarDireccion()">Buscar</button>
+      <button onclick="usarUbicacion()">Usar mi ubicación</button>
+
+      <div id="map" style="height: 400px; margin-top: 1rem;"></div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Orientación Vocacional. Todos los derechos reservados.
+  </footer>
+  <script src="js/scripts.js"></script>
+  <script src="js/mapa.js"></script>
+  <script src="js/comentarios.js"></script>
+</body>
+</html>
