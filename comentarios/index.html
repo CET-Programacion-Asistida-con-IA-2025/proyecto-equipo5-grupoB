@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Comentarios del grupo</title>
+  <style>
+    body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
+    #comments { margin-top: 20px; }
+    .comment { background: #fff; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 10px; }
+    button { margin: 0 5px; }
+  </style>
+  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-database-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="comentarios.js" defer></script>
+</head>
+<body>
+
+  <h2>Dejá tu comentario</h2>
+  <input type="text" id="nombre" placeholder="Tu nombre">
+  <br><br>
+  <textarea id="mensaje" rows="3" placeholder="Escribí algo..."></textarea>
+  <br><br>
+  <button onclick="publicarComentario()">Enviar comentario</button>
+
+  <div id="comments"></div>
+
+</body>
+</html>
