@@ -17,13 +17,20 @@
 <body>
 
   <h2>Dejá tu comentario</h2>
-  <input type="text" id="nombre" placeholder="Tu nombre">
-  <br><br>
-  <textarea id="mensaje" rows="3" placeholder="Escribí algo..."></textarea>
-  <br><br>
-  <button onclick="publicarComentario()">Enviar comentario</button>
 
-  <div id="comments"></div>
+<div style="margin-top: 1rem;">
+  <label for="nombre">Tu nombre:</label><br>
+  <input type="text" id="nombre" style="width: 100%; margin-bottom: 0.5rem;"><br>
+
+  <label for="mensaje">Escribí tu comentario:</label><br>
+  <textarea id="mensaje" rows="3" style="width: 100%; margin-top: 0.5rem;"></textarea>
+  <button onclick="agregarComentario()">Publicar</button>
+</div>  
+
+<div id="comments" style="margin-top: 2rem;">
+  <!-- Comentarios se cargan acá -->
+</div>
+
 
 </body>
 </html>
