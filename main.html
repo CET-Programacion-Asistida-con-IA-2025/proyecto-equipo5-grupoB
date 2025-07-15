@@ -213,13 +213,20 @@ orientación vocacional, educación, oportunidades y contención para que nadie 
     <section id="experiencias" class="seccion">
       <h2>Foro de Experiencias</h2>
       <p>Leé o compartí historias de estudiantes y egresados sobre sus carreras, decisiones, dificultades y logros.</p>
-      <div id="comentarios-container"></div>
+      
 
-      <div style="margin-top: 1rem;">
-        <label for="comentario">Escribí tu comentario:</label><br>
-        <textarea id="comentario" rows="3" style="width: 100%; margin-top: 0.5rem;"></textarea>
-        <button onclick="agregarComentario()">Publicar</button>
-      </div>
+    <h2>Comentarios</h2>
+<iframe 
+  src="comentarios/index.html" 
+  width="100%" 
+  height="600" 
+  style="border:none;" 
+  title="Sección de Comentarios">
+</iframe>
+ 
+
+
+
     </section>
 
     <section id="cursos" class="seccion">
@@ -330,23 +337,8 @@ orientación vocacional, educación, oportunidades y contención para que nadie 
     if (pregunta.includes("no sé qué estudiar")) return "Tranquilo/a, es normal. Podemos empezar por pensar en lo que te gusta o en tus materias favoritas.";
     return "Lo siento, todavía no tengo una respuesta para eso. Podés probar con otra pregunta 😊";
   }
-
-   function agregarComentario() {
-    const comentarioInput = document.getElementById("comentario");
-    const comentarioTexto = comentarioInput.value.trim();
-
-    if (!comentarioTexto) return;
-
-    const contenedor = document.getElementById("comentarios-container");
-    const nuevoComentario = document.createElement("div");
-    nuevoComentario.style.padding = "0.5rem";
-    nuevoComentario.style.borderBottom = "1px solid #ddd";
-    nuevoComentario.style.marginBottom = "0.5rem";
-    nuevoComentario.textContent = comentarioTexto;
-
-    contenedor.appendChild(nuevoComentario);
-    comentarioInput.value = "";
-  }
+ 
   </script>
+
 </body>
 </html>
